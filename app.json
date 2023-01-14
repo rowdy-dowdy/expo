@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "expo-app",
-    "slug": "expo-app",
+    "slug": "learn-1",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -18,16 +18,24 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.viethungcoder.learn1"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.viethungcoder.learn1"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "d20cec08-4752-486c-82c4-409d00c07ca4"
+      }
+    },
+    "owner": "viethungcoder"
   }
 }
