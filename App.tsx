@@ -1,12 +1,28 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { Route, Routes } from 'react-router';
+import { NativeRouter } from 'react-router-native';
+import Home from './pages/home';
+
+import { NativeWindStyleSheet } from "nativewind";
+
+NativeWindStyleSheet.setOutput({
+  default: "native",
+});
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NativeRouter>
+      <SafeAreaView>
+        <View className='flex-1 items-center justify-center bg-blue'>
+          <Text className='text-blue-600 bg-red'>Open up App.tsx to start working on your app!</Text>
+        </View>
+        <Routes>
+          <Route path='/' element={<Home/>} />
+        </Routes>
+
+      </SafeAreaView>
+    </NativeRouter>
   );
 }
 
