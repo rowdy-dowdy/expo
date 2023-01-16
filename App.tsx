@@ -2,9 +2,10 @@ import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { Route, Routes } from 'react-router';
 import { NativeRouter } from 'react-router-native';
-import Home from './pages/home';
-
 import { NativeWindStyleSheet } from "nativewind";
+
+import Home from './pages/home';
+import Discover from './pages/discover';
 
 NativeWindStyleSheet.setOutput({
   default: "native",
@@ -13,24 +14,12 @@ NativeWindStyleSheet.setOutput({
 export default function App() {
   return (
     <NativeRouter>
-      <SafeAreaView>
-        <View className='flex-1 items-center justify-center bg-blue'>
-          <Text className='text-blue-600 bg-red'>Open up App.tsx to start working on your app!</Text>
-        </View>
+      <SafeAreaView className='flex-1'>
         <Routes>
           <Route path='/' element={<Home/>} />
+          <Route path='/discover' element={<Discover/>} />
         </Routes>
-
       </SafeAreaView>
     </NativeRouter>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
