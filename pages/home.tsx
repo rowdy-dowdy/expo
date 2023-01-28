@@ -113,7 +113,7 @@ export default () => {
                 className="w-20 h-20 items-center justify-center rounded-full bg-sky-400"
                 style={{transform: [{scale: fadeAnim2}]}}
               >
-                <Text className="text-3xl text-white font-semibold">Go</Text>
+                <Text className="text-3xl text-white font-semibold">Go2</Text>
               </Animated.View>
             </View>
           </TouchableOpacity>

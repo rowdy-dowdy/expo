@@ -21,6 +21,19 @@ export default () => {
           <Image source={Avatar} className="w-full h-full rounded-md" />
         </View>
       </View>
+      
+      <TouchableOpacity 
+          className="absolute bottom-20 w-24 h-24 border-2 border-t-4 border-b-0 border-sky-400 rounded-full items-center justify-center" 
+          onPress={() => navigate('/')}
+        >
+          <View>
+            <View 
+              className="w-20 h-20 items-center justify-center rounded-full bg-sky-400"
+            >
+              <Text className="text-3xl text-white font-semibold">Go</Text>
+            </View>
+          </View>
+        </TouchableOpacity>
     </View>
   )
 }
