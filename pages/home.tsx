@@ -106,14 +106,14 @@ export default () => {
         {/* <Link to="/discover" className="absolute bottom-20"> */}
           <TouchableOpacity 
             className="absolute bottom-20 w-24 h-24 border-2 border-t-4 border-b-0 border-sky-400 rounded-full items-center justify-center" 
-            onPress={() => navigate('/discover')}
+            onPress={() => navigate('discover')}
           >
             <View>
               <Animated.View 
                 className="w-20 h-20 items-center justify-center rounded-full bg-sky-400"
                 style={{transform: [{scale: fadeAnim2}]}}
               >
-                <Text className="text-3xl text-white font-semibold">Go2</Text>
+                <Text className="text-3xl text-white font-semibold">Go</Text>
               </Animated.View>
             </View>
           </TouchableOpacity>
