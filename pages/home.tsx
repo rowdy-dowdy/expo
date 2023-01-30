@@ -3,7 +3,7 @@ import { Animated, Dimensions, Image, Platform, Text, TouchableOpacity, View } f
 import { Link, useNavigate } from "react-router-native";
 import { HeroImage } from "../assets";
 
-export default () => {
+export default ({navigation}: any) => {
   var [actualImageWidth, setActualImageWidth] = useState(0)
   var [actualImageHeight, setActualImageHeight] = useState(0)
 
@@ -55,8 +55,6 @@ export default () => {
     ])
   ).start()
 
-  const navigate = useNavigate()
-
   return(
     <View className="flex-1 overflow-hidden">
       {/* First section */}
@@ -106,7 +104,7 @@ export default () => {
         {/* <Link to="/discover" className="absolute bottom-20"> */}
           <TouchableOpacity 
             className="absolute bottom-20 w-24 h-24 border-2 border-t-4 border-b-0 border-sky-400 rounded-full items-center justify-center" 
-            onPress={() => navigate('discover')}
+            onPress={() => navigation.navigate('discover')}
           >
             <View>
               <Animated.View 

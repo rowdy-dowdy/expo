@@ -9,5 +9,40 @@ module.exports = async function (env, argv) {
       new ReactRefreshWebpackPlugin()
     );
   }
+
+  // config.module.rules[1].oneOf.unshift({
+  //   test: /\.svg$/,
+  //   exclude: /node_modules/,
+  //   use: [
+  //     {
+  //       loader: '@svgr/webpack',
+  //       options: {
+  //         svgoConfig: {
+  //           plugins: [
+  //             {
+  //               name: 'removeViewBox',
+  //               active: false,
+  //             },
+  //             {
+  //               name: 'removeUnknownsAndDefaults',
+  //               active: false,
+  //             },
+  //             {
+  //               name: 'convertColors',
+  //               active: false,
+  //             },
+  //             {
+  //               name: 'inlineStyles',
+  //               params: {
+  //                 onlyMatchedOnce: false,
+  //               },
+  //             },
+  //           ],
+  //         },
+  //       },
+  //     },
+  //   ],
+  // });
+
   return config;
 };

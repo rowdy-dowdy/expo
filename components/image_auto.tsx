@@ -1,4 +1,4 @@
-import { Image, Platform } from "react-native";
+import { Image, ImageStyle, Platform, StyleProp, TextStyle } from "react-native";
 import { useEffect, useState } from "react";
 
 const scaleWidth = async ({ source, desiredWidth } : {source: any, desiredWidth: any}) => {
@@ -23,7 +23,7 @@ const scaleWidth = async ({ source, desiredWidth } : {source: any, desiredWidth:
   return desiredWidth / width * height
 }
 
-export default (props: {img: any, width: number, style: any}) => {
+export default (props: {img: any, width: number, style?: ImageStyle}) => {
 
   var [actualImageHeight, setActualImageHeight] = useState(0)
   

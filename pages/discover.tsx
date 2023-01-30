@@ -3,11 +3,7 @@ import { Animated, Dimensions, Image, Platform, Text, TouchableOpacity, View } f
 import { Link, useNavigate } from "react-router-native";
 import { Avatar } from "../assets";
 
-export default () => {
-  
-
-  const navigate = useNavigate()
-
+export default ({navigation}: any) => {
   return(
     <View className="flex-1 overflow-hidden">
       {/* First section */}
@@ -24,7 +20,7 @@ export default () => {
       
       <TouchableOpacity 
           className="absolute bottom-20 w-24 h-24 border-2 border-t-4 border-b-0 border-sky-400 rounded-full items-center justify-center" 
-          onPress={() => navigate('/')}
+          onPress={() => navigation.navigate('/')}
         >
           <View>
             <View 

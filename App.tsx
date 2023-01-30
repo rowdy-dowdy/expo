@@ -1,47 +1,62 @@
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import { Navigate, Route, Routes } from 'react-router';
-import { NativeRouter, useNavigate } from 'react-router-native';
 import { NativeWindStyleSheet } from "nativewind";
-import { useEffect } from 'react';
 
 import Home from './pages/home';
 import Discover from './pages/discover';
-import Auth from './pages/auth/auth';
 import Login from './pages/auth/login';
 import Register from './pages/auth/register';
-import ProtectedLayout from './layouts/protected_layout';
-import { AuthProvider } from './components/auth_provider';
-import { AuthLayout } from './layouts/auth_layout';
+import { AuthProvider, useAuth } from './components/auth_provider';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 NativeWindStyleSheet.setOutput({
   default: "native",
 });
 
+const Stack = createNativeStackNavigator()
+
 const Main = () => {
+
+  const { user } = useAuth();
+
   return (
-    <SafeAreaView className='flex-1'>
-      <Routes>
-        <Route element={<AuthLayout/>}>
-          <Route element={<ProtectedLayout/>}>
-            <Route path='/' element={<Home/>} />
-            <Route path='discover' element={<Discover/>} />
-          </Route>
+    // <SafeAreaView className='flex-1'>
+    //   <Routes>
+    //     <Route element={<AuthLayout/>}>
+    //       <Route element={<ProtectedLayout/>}>
+    //         <Route path='/' element={<Home/>} />
+    //         <Route path='discover' element={<Discover/>} />
+    //       </Route>
           
-          <Route path='auth' element={<Auth/>}>
-            <Route path="login" element={<Login />} />
-            <Route path="register" element={<Register />} />
-          </Route>
-        </Route>
-      </Routes>
-    </SafeAreaView>
+    //       <Route path='auth' element={<Auth/>}>
+    //         <Route path="login" element={<Login />} />
+    //         <Route path="register" element={<Register />} />
+    //       </Route>
+    //     </Route>
+    //   </Routes>
+    // </SafeAreaView>
+    <Stack.Navigator screenOptions={{headerShown: false}}>
+      { user ? (
+        <Stack.Group>
+          <Stack.Screen name='home' component={Home} />
+          <Stack.Screen name='discover' component={Discover} />
+        </Stack.Group>
+      ) : (
+        <Stack.Group>
+          <Stack.Screen name='login' component={Login} />
+          <Stack.Screen name='register' component={Register} />
+        </Stack.Group>
+      )}
+    </Stack.Navigator>
   )
 }
 
 export default function App() {
   return (
-    <NativeRouter>
-      <Main />
-    </NativeRouter>
+    <NavigationContainer>
+      <AuthProvider>
+        <Main />
+      </AuthProvider>
+    </NavigationContainer>
   );
 }
